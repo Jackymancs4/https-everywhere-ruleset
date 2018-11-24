@@ -34,7 +34,7 @@ npm install -g pem-jwk
 This will install the `pem-jwk` package globally.  You can now run
 
 ```shell
-cat public.pem | pem-jwk
+cat ./keys/public.pem | pem-jwk > ./keys/public.jwk.json
 ```
 
 And you should see a `jwk` object displayed.  Take note of this, you will need it later.
@@ -45,7 +45,7 @@ And you should see a `jwk` object displayed.  Take note of this, you will need i
 openssl genrsa -out ./keys/key.pem 4092
 openssl rsa -in ./keys/key.pem -outform PEM -pubout -out ./keys/public.pem
 npm install -g pem-jwk
-cat public.pem | pem-jwk > ./keys/public.jwk.json
+cat ./keys/public.pem | pem-jwk > ./keys/public.jwk.json
 ```
 
 ### 2. Signing rulesets with this key
@@ -88,27 +88,27 @@ sudo docker run -it -v $(pwd):/opt --workdir /opt python:3.6 bash
 Next, run
 
 ```shell
-python3.6 merge-rulesets.py
+python3 merge-rulesets.py
 ```
 
 You should see the following output:
 
 ```shell
  * Parsing XML ruleset and constructing JSON library...
- * Writing JSON library to ./rules/default.rulesets
+ * Writing JSON library to rules/default.rulesets
  * Everything is okay.
 ```
 
 This prepares the file you are about to sign.  If your do not have an airgap, run the following command:
 
 ```shell
-./standalone.sh ./keys/key.pem ./dist/
+./standalone.sh ./keys/key.pem ./rulesets/v1/
 ```
 
 If you have an airgapped setup, run the following command on your development machine:
 
 ```shell
-./async-request.sh ./keys/public.pem ./dist/
+./async-request.sh ./keys/public.pem ./rulesets/v1/
 ```
 
 This will display a hash for signing, as well as a metahash.  On your airgap machine, run the `async-airgap.sh` script that you had previously copied to it:
@@ -123,7 +123,7 @@ typing the hash carefully.  Check the metahash to make sure it is the same as wh
 
 ```shell
 python3 merge-rulesets.py
-./standalone.sh ./keys/key.pem ./dist
+./standalone.sh ./keys/key.pem ./rulesets/v1/
 ```
 
 ### 3. Publishing those rulesets somewhere
