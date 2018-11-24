@@ -1,0 +1,1 @@
+[{"name":"Example.com","target":["example.com","www.example.com"],"rule":[{"from":"^http:","to":"https:"}]},{"name":"Yacreader.com","target":["yacreader.com","www.yacreader.com/"],"rule":[{"from":"^http:","to":"https:"}]}]

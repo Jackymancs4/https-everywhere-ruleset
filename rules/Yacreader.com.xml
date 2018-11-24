@@ -1,0 +1,15 @@
+<!--
+	Nonfunctional hosts in *.example.com:
+
+	h: http redirect
+	m: certificate mismatch
+	r: connection refused
+	s: self-signed certificate
+	t: timeout on https
+-->
+<ruleset name="Yacreader.com">
+	<target host="yacreader.com" />
+	<target host="www.yacreader.com/" />
+
+	<rule from="^http:" to="https:" />
+</ruleset>
