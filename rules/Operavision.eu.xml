@@ -1,5 +1,5 @@
 <!--
-	Nonfunctional hosts in *.example.com:
+	Nonfunctional hosts in *.operavision.eu:
 
 	h: http redirect
 	m: certificate mismatch
@@ -7,9 +7,9 @@
 	s: self-signed certificate
 	t: timeout on https
 -->
-<ruleset name="Yacreader.com">
-	<target host="yacreader.com" />
-	<target host="www.yacreader.com" />
+<ruleset name="Operavision.eu">
+	<target host="operavision.eu" />
+	<target host="www.operavision.eu" />
 
 	<rule from="^http:" to="https:" />
 </ruleset>

@@ -1,1 +1,1 @@
-[{"name":"Yacreader.com","target":["yacreader.com","www.yacreader.com/"],"rule":[{"from":"^http:","to":"https:"}]}]
+[{"name":"Operavision.eu","target":["operavision.eu","www.operavision.eu"],"rule":[{"from":"^http:","to":"https:"}]},{"name":"Yacreader.com","target":["yacreader.com","www.yacreader.com"],"rule":[{"from":"^http:","to":"https:"}]}]
